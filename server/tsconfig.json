@@ -1,0 +1,21 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    /* Modules */
+    "rootDir": "src",
+    "outDir": "dist",
+
+    /* Module Resolution */
+    "moduleResolution": "node",
+    "esModuleInterop": true, // Ensure compatibility with CommonJS modules
+    "resolveJsonModule": true, // Allow importing .json files if needed
+
+    /* Emit */
+    "strict": true, // Enable strict type checking
+    "skipLibCheck": true, // Speed up the build process by skipping library checks
+    "sourceMap": true // Generate source maps for debugging
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"],
+  "typeRoots": ["./node_modules/@types", "./src/types"]
+}
