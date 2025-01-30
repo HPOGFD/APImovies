@@ -7,15 +7,17 @@
 
     /* Module Resolution */
     "moduleResolution": "node",
-    "esModuleInterop": true, // Ensure compatibility with CommonJS modules
-    "resolveJsonModule": true, // Allow importing .json files if needed
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
 
     /* Emit */
-    "strict": true, // Enable strict type checking
-    "skipLibCheck": true, // Speed up the build process by skipping library checks
-    "sourceMap": true // Generate source maps for debugging
+    "strict": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+
+    /* Types */
+    "typeRoots": ["./node_modules/@types", "./src/types"]
   },
   "include": ["src/**/*"],
-  "exclude": ["node_modules", "dist"],
-  "typeRoots": ["./node_modules/@types", "./src/types"]
+  "exclude": ["node_modules", "dist"]
 }
