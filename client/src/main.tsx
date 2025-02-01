@@ -5,7 +5,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './app';
 import Home from './pages/Home.tsx';
 import ErrorPage from './pages/ErrorPage.tsx';
-
+import Watchlist from './pages/watchlist-page.tsx';
 
 const router = createBrowserRouter([
   {
@@ -16,7 +16,11 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Home />
-      }, 
+      },
+      {
+        path: 'watchlist',
+        element: <Watchlist />
+    },
      
     ]
   }

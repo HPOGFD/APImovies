@@ -1,6 +1,7 @@
 import React from "react";
 import { MovieData } from "../interfaces/movie.interface";
 import { Calendar, Film, Info, Users, Plus, Check } from "lucide-react";
+import "../css/movieCard-css.css"
 
 interface MovieCardProps {
   movie: MovieData;
@@ -30,76 +31,91 @@ const MovieCard: React.FC<MovieCardProps> = ({
   };
 
   return (
-    <div className="w-full max-w-sm rounded-lg border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:shadow-lg">
+
+<div className="movie-cards-container">
+  {/* Column 1 */}
+  <div className="column">
+    <div className="card">
       {/* Poster Section */}
-      <div className="relative">
-        {movie.poster && (
-          <div className="aspect-[2/3] overflow-hidden rounded-t-lg">
-            <img
-              src={movie.poster}
-              alt={`${movie.title} Poster`}
-              className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
-            />
-          </div>
+      <div className="poster-section">
+        {movie.poster ? (
+          <img
+            src={movie.poster}
+            alt={`${movie.title} Poster`}
+            className="poster-image"
+          />
+        ) : (
+          <div className="poster-fallback">No Image Available</div>
         )}
       </div>
 
-      {/* Title Section */}
-      <div className="p-4">
-        <div className="flex items-start justify-between">
-          <h3 className="text-xl font-semibold text-gray-900 line-clamp-2">
-            {movie.title}
-          </h3>
-        </div>
-      </div>
-
-      {/* Movie Details Section */}
-      <div className="p-4 pt-0 space-y-4">
-        {/* Actors */}
-        <div className="flex items-center gap-2 text-sm text-gray-600">
-          <Users className="h-4 w-4 flex-shrink-0" />
-          <span className="line-clamp-2">{movie.actors}</span>
+      {/* Content Container */}
+      <div className="details-section">
+        {/* Title Section */}
+        <div className="title-section">
+          <div>
+            <h3>{movie.title}</h3>
+          </div>
         </div>
 
-        {/* Genre */}
-        <div className="flex items-center gap-2 text-sm text-gray-600">
-          <Film className="h-4 w-4 flex-shrink-0" />
-          <span className="line-clamp-1">{movie.genre}</span>
-        </div>
+        {/* Movie Details Section */}
+        <div>
+          {/* Actors */}
+          <div>
+            <Users />
+            <span>{movie.actors}</span>
+          </div>
 
-        {/* Release Date */}
-        <div className="flex items-center gap-2 text-sm text-gray-600">
-          <Calendar className="h-4 w-4 flex-shrink-0" />
-          <span>{movie.releaseDate}</span>
-        </div>
+          {/* Genre */}
+          <div>
+            <Film />
+            <span>{movie.genre}</span>
+          </div>
 
-        {/* Description */}
-        <div className="flex items-start gap-2 text-sm text-gray-600">
-          <Info className="h-4 w-4 mt-1 flex-shrink-0" />
-          <p className="line-clamp-3">{movie.description}</p>
+          {/* Release Date */}
+          <div>
+            <Calendar />
+            <span>{movie.releaseDate}</span>
+          </div>
+
+          {/* Description */}
+          <div>
+            <Info />
+            <p>{movie.description}</p>
+          </div>
         </div>
 
         {/* Action Buttons */}
-        <div className="flex gap-2 pt-4 border-t border-gray-100">
-          <button
-            onClick={handleAddToWatchlist}
-            className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors duration-200"
-          >
-            <Plus className="h-4 w-4" />
-            Add to Watchlist
-          </button>
-          
-          <button
-            onClick={handleAddToSeen}
-            className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition-colors duration-200"
-          >
-            <Check className="h-4 w-4" />
-            Already Seen
-          </button>
+        <div>
+          <div>
+            <button onClick={handleAddToWatchlist}>
+              <Plus />
+              Add to Watchlist
+            </button>
+            
+            <button onClick={handleAddToSeen}>
+              <Check />
+              Already Seen
+            </button>
+          </div>
         </div>
       </div>
     </div>
-  );
+
+    {/* Add more cards to this column */}
+  </div>
+
+  {/* Column 2 */}
+  <div className="column">
+    {/* Add cards here */}
+  </div>
+
+  {/* Column 3 */}
+  <div className="column">
+    {/* Add cards here */}
+  </div>
+</div>
+);
 };
 
 export default MovieCard;
