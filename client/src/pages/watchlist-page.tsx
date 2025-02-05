@@ -1,5 +1,5 @@
 // src/pages/Watchlist.js
-import React from "react";
+
 
 const Watchlist = () => {
   return (
